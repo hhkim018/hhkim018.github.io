@@ -1,6 +1,6 @@
 export const locales = ['ko', 'ja', 'zh', 'en'];
 export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter', 'dice-roller', 'stock-average-calculator', 'character-byte-counter', 'percentage-discount-calculator', 'interest-calculator', 'character-encoding-converter', 'morse-code'];
-export const siteOrigin = (process.env.SITE_URL || 'https://example.com').replace(/\/$/, '');
+export const siteOrigin = (process.env.SITE_URL || 'https://tools.gogo-tools.workers.dev').replace(/\/$/, '');
 
 const home = {
   ko: ['온라인 무료 도구 모음', '메트로놈, 스톱워치, 모스부호 변환기, QR 코드 등 일상과 개발에 유용한 20가지 온라인 도구. 가입 없이 브라우저에서 사용하세요.'],
