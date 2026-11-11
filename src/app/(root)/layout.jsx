@@ -2,6 +2,7 @@ import '../../styles.css';
 import '../../guide.css';
 import '../../content.css';
 import { siteOrigin } from '../../lib/seo.js';
+import Analytics from '../../ui/Analytics.jsx';
 
 export const metadata = {
   metadataBase: new URL(siteOrigin),
@@ -14,5 +15,5 @@ export const metadata = {
 };
 
 export default function KoreanRootLayout({ children }) {
-  return <html lang="ko"><body>{children}</body></html>;
+  return <html lang="ko"><body><Analytics />{children}</body></html>;
 }
