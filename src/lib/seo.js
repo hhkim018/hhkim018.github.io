@@ -3,7 +3,7 @@ export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-
 export const siteOrigin = (process.env.SITE_URL || 'https://example.com').replace(/\/$/, '');
 
 const home = {
-  ko: ['작은 도구들 — 온라인 무료 도구 모음', '메트로놈, 스톱워치, 모스부호 변환기, QR 코드 등 일상과 개발에 유용한 20가지 온라인 도구. 가입 없이 브라우저에서 사용하세요.'],
+  ko: ['온라인 무료 도구 모음', '메트로놈, 스톱워치, 모스부호 변환기, QR 코드 등 일상과 개발에 유용한 20가지 온라인 도구. 가입 없이 브라우저에서 사용하세요.'],
   ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、ストップウォッチ、モールス信号変換、QRコードなど、日常や開発に役立つ20の無料オンラインツール。'],
   zh: ['实用小工具 — 免费在线工具集', '节拍器、秒表、摩斯密码转换、二维码等 20 种日常与开发工具。无需注册，在浏览器中使用。'],
   en: ['Little Tools — Free Online Utilities', '20 useful browser-based tools for everyday tasks and development, including a metronome, Morse code translator, QR code maker, and JSON formatter.'],

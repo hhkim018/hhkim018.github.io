@@ -11,9 +11,9 @@ npm run dev
 
 The site uses `/ko`, `/ja`, `/zh`, and `/en` locale paths. Tool slugs are shared across locales, for example `/ko/tools/json-formatter/` and `/ja/tools/json-formatter/`. The barcode and QR tools link to cited usage guides in each language.
 
-## Static export and sitemap
+## Build and sitemap
 
-`npm run build` creates the static site in `out/`. It includes a separate HTML page for each language home, tool route, and guide, plus generated `sitemap.xml` and `robots.txt`. Set `SITE_URL` to the canonical production origin before building; the default `https://example.com` is only a placeholder.
+`npm run build` creates a standalone Next.js server bundle in `.next/standalone/`, including the server manifests required by the deployment environment. Pages are statically generated where possible, including each language home, tool route, and guide, plus `sitemap.xml` and `robots.txt`. Set `SITE_URL` to the canonical production origin before building; the default `https://example.com` is only a placeholder.
 
 ```sh
 SITE_URL=https://your-domain.example npm run build
