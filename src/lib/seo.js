@@ -1,12 +1,12 @@
 export const locales = ['ko', 'ja', 'zh', 'en'];
-export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter'];
+export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter', 'dice-roller', 'stock-average-calculator', 'character-byte-counter', 'percentage-discount-calculator', 'interest-calculator', 'character-encoding-converter', 'morse-code'];
 export const siteOrigin = (process.env.SITE_URL || 'https://example.com').replace(/\/$/, '');
 
 const home = {
-  ko: ['작은 도구들 — 온라인 무료 도구 모음', '메트로놈, 스톱워치, QR 코드, JSON 정리기 등 일상과 개발에 유용한 13가지 온라인 도구. 가입 없이 브라우저에서 안전하게 사용하세요.'],
-  ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、ストップウォッチ、QRコード、JSON整形など、日常や開発に役立つ13の無料オンラインツール。'],
-  zh: ['实用小工具 — 免费在线工具集', '节拍器、秒表、二维码、JSON 格式化等 13 种日常与开发工具。无需注册，在浏览器中安全使用。'],
-  en: ['Little Tools — Free Online Utilities', '13 useful browser-based tools for everyday tasks and development, including a metronome, stopwatch, QR code maker, and JSON formatter.'],
+  ko: ['작은 도구들 — 온라인 무료 도구 모음', '메트로놈, 스톱워치, 모스부호 변환기, QR 코드 등 일상과 개발에 유용한 20가지 온라인 도구. 가입 없이 브라우저에서 사용하세요.'],
+  ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、ストップウォッチ、モールス信号変換、QRコードなど、日常や開発に役立つ20の無料オンラインツール。'],
+  zh: ['实用小工具 — 免费在线工具集', '节拍器、秒表、摩斯密码转换、二维码等 20 种日常与开发工具。无需注册，在浏览器中使用。'],
+  en: ['Little Tools — Free Online Utilities', '20 useful browser-based tools for everyday tasks and development, including a metronome, Morse code translator, QR code maker, and JSON formatter.'],
 };
 const tools = {
   ko: [
@@ -23,6 +23,12 @@ const tools = {
     ['정규식 테스트기', '정규식 패턴과 플래그를 테스트하고 텍스트에서 일치하는 값을 확인합니다.'],
     ['Markdown 미리보기', 'Markdown을 입력하고 제목, 목록, 코드와 링크 렌더링 결과를 안전하게 미리 봅니다.'],
     ['색상 변환·대비 검사기', 'HEX 색상을 RGB·HSL로 변환하고 글자색과 배경색의 WCAG 대비율을 확인합니다.'],
+    ['주사위 굴리기', '1~10개의 6면 주사위를 굴려 각 눈과 합계를 애니메이션으로 확인합니다.'],
+    ['주식 물타기 계산기', '보유 주식 수와 평단, 추가 매수 가격과 수량을 입력해 새 평균 매입가와 총 투자액을 계산합니다. 수수료와 세금은 제외합니다.'],
+    ['글자수·바이트 계산기', '한글·영문·이모지의 글자 수와 UTF-8 바이트를 실시간으로 계산합니다. 공백 포함·제외 결과를 함께 확인하세요.'],
+    ['퍼센트·할인 계산기', '퍼센트의 일부 값, 비율, 증감률, 할인액과 할인 후 가격을 계산하는 무료 온라인 도구입니다.'],
+    ['이자 계산기', '원금·연이율·개월 수를 입력해 단리와 복리의 이자 및 만기 금액을 계산합니다. 복리 주기를 선택할 수 있습니다.'],
+    ['글자 인코딩 변환기', '텍스트를 UTF-8, UTF-16LE, EUC-KR, Shift_JIS, GBK, Windows-1252 문자 인코딩으로 변환하고 결과 바이트를 확인합니다.']
   ],
   ja: [
     ['オンラインメトロノーム', 'BPMと拍子を設定できる無料メトロノーム。ブラウザーでクリック音を再生します。'],
@@ -38,6 +44,12 @@ const tools = {
     ['正規表現テスター', '正規表現パターンとフラグを試し、テキスト内の一致を確認します。'],
     ['Markdownプレビュー', 'Markdownの見出し、リスト、コードやリンクを安全にプレビューします。'],
     ['色変換・コントラスト確認', 'HEXをRGB・HSLに変換し、文字色と背景色のWCAGコントラスト比を確認します。'],
+    ['サイコロ', '1〜10個の6面サイコロを振り、それぞれの目と合計をアニメーションで確認できます。'],
+    ['株の平均取得単価計算', '保有株数と平均取得単価、追加購入価格と株数から、新しい平均取得単価と投資額を計算します。手数料・税金は含みません。'],
+    ['文字数・バイト数カウンター', '空白の有無別の文字数、行数、UTF-8バイト数をリアルタイムで数えます。'],
+    ['パーセント・割引計算', '割合、比率、増減率、割引額と割引後の価格を計算します。'],
+    ['利息計算', '元金・年利・月数から単利または複利の利息と満期額を計算します。複利の頻度を選べます。'],
+    ['文字エンコード変換', 'テキストをUTF-8、UTF-16LE、EUC-KR、Shift_JIS、GBK、Windows-1252に変換し、出力バイトを確認できます。']
   ],
   zh: [
     ['在线节拍器', '设置 BPM 和拍号的免费在线节拍器，可在浏览器中播放节拍声。'],
@@ -53,6 +65,12 @@ const tools = {
     ['正则表达式测试器', '测试正则模式与标志，并查看文本中的匹配结果。'],
     ['Markdown 预览', '安全预览 Markdown 标题、列表、代码和链接。'],
     ['颜色转换与对比度检查', '将 HEX 颜色转换为 RGB、HSL，并检查文字与背景的 WCAG 对比度。'],
+    ['掷骰子', '可同时投掷 1 到 10 个六面骰子，并通过动画查看各点数与总和。'],
+    ['股票补仓计算器', '根据持仓数量、当前均价、补仓价格和数量计算新的平均成本与总投入。不含手续费和税费。'],
+    ['字符数与字节数计算器', '实时统计含空白和不含空白的 Unicode 字符数、行数及 UTF-8 字节数。'],
+    ['百分比与折扣计算器', '计算数值百分比、比例、涨跌幅、优惠金额和折后价格。'],
+    ['利息计算器', '根据本金、年利率和月数计算单利或复利及到期金额，并可选择复利频率。'],
+    ['文本编码转换器', '在 UTF-8、UTF-16LE、EUC-KR、Shift_JIS、GBK 和 Windows-1252 之间转换文本并查看字节结果。']
   ],
   en: [
     ['Online Metronome', 'A free metronome with adjustable BPM and meter, tap tempo, and browser-based audio.'],
@@ -68,7 +86,20 @@ const tools = {
     ['Regex Tester', 'Test regular expression patterns and flags against sample text.'],
     ['Markdown Preview', 'Safely preview rendered Markdown headings, lists, code, and links.'],
     ['Color Converter and Contrast Checker', 'Convert HEX colors to RGB and HSL, then check WCAG text and background contrast.'],
+    ['Dice Roller', 'Roll 1 to 10 six-sided dice and see each result and the total with an animation.'],
+    ['Stock Averaging Calculator', 'Calculate a new average share cost and total investment from your current holdings and an additional purchase. Fees and taxes are excluded.'],
+    ['Character and Byte Counter', 'Count Unicode characters with or without whitespace, lines, and UTF-8 bytes in real time.'],
+    ['Percentage and Discount Calculator', 'Calculate a percentage of a value, ratios, percentage change, discount savings, and sale prices.'],
+    ['Interest Calculator', 'Calculate simple or compound interest and maturity value from principal, annual rate, and term. Choose a compounding frequency.'],
+    ['Text Encoding Converter', 'Convert text between UTF-8, UTF-16LE, EUC-KR, Shift_JIS, GBK, and Windows-1252, then inspect the output bytes.']
   ],
+};
+
+const morseMetadata = {
+  ko: ['모스부호 변환기·플레이어', '영어 텍스트와 국제 모스부호를 서로 변환하고 재생 속도를 조절해 신호음을 들을 수 있습니다.'],
+  ja: ['モールス信号変換・再生ツール', '英語テキストと国際モールス信号を相互変換し、再生速度を調整して信号音を聴けます。'],
+  zh: ['摩斯密码转换与播放器', '在英文文本与国际摩斯密码之间互相转换，并可调节播放速度收听信号音。'],
+  en: ['Morse Code Translator and Player', 'Translate English text to International Morse code, decode it back, and listen to timed tones at an adjustable speed.'],
 };
 
 export function homeMetadata(locale = 'ko') {
@@ -80,7 +111,7 @@ export function homeMetadata(locale = 'ko') {
 export function toolMetadata(locale = 'ko', slug) {
   const toolIndex = toolSlugs.indexOf(slug);
   if (toolIndex < 0) return homeMetadata(locale);
-  const [name, description] = tools[locale]?.[toolIndex] || tools.ko[toolIndex];
+  const [name, description] = slug === 'morse-code' ? morseMetadata[locale] : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
   const path = `/${locale}/tools/${slug}/`;
   return { title: `${name} — tiny.tools`, description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}/${lang}/tools/${slug}/`]).concat([['x-default', `${siteOrigin}/ko/tools/${slug}/`]])) }, openGraph: { title: name, description, url: path, siteName: 'tiny.tools', locale } };
 }
