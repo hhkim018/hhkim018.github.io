@@ -1,12 +1,14 @@
 export const locales = ['ko', 'ja', 'zh', 'en'];
-export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter', 'dice-roller', 'stock-average-calculator', 'character-byte-counter', 'percentage-discount-calculator', 'interest-calculator', 'character-encoding-converter', 'morse-code', 'currency-converter', 'unit-converter', 'jwt-tool', 'db-meter', 'tts', 'date-calculator', 'age-calculator', 'salary-calculator', 'hourly-wage-calculator', 'loan-calculator', 'vat-calculator', 'pyeong-calculator', 'bmi-calculator', 'aspect-ratio-calculator', 'random-draw', 'world-time-converter'];
+export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter', 'dice-roller', 'stock-average-calculator', 'character-byte-counter', 'percentage-discount-calculator', 'interest-calculator', 'character-encoding-converter', 'morse-code', 'currency-converter', 'unit-converter', 'jwt-tool', 'db-meter', 'tts', 'date-calculator', 'age-calculator', 'salary-calculator', 'hourly-wage-calculator', 'loan-calculator', 'vat-calculator', 'pyeong-calculator', 'bmi-calculator', 'aspect-ratio-calculator', 'random-draw', 'world-time-converter', 'image-resizer', 'image-format-converter', 'image-compressor', 'image-cropper', 'image-color-picker', 'favicon-generator', 'image-base64-converter', 'svg-optimizer', 'image-watermark', 'qr-design-generator'];
 export const siteOrigin = (process.env.SITE_URL || 'https://tools.gogo-tools.workers.dev').replace(/\/$/, '');
+export const siteBasePath = (process.env.NEXT_PUBLIC_BASE_PATH || '').replace(/\/$/, '');
+const publicPath = (path) => `${siteBasePath}${path}`;
 
 const home = {
-  ko: ['온라인 무료 도구 모음', '메트로놈, 날짜 계산기, 실수령액 계산기, 랜덤 추첨기, 세계 시간 변환기 등 일상과 개발에 유용한 36가지 온라인 도구.'],
-  ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、日付計算、手取り給与計算、抽選、世界時間変換など、日常や開発に役立つ36の無料オンラインツール。'],
-  zh: ['实用小工具 — 免费在线工具集', '节拍器、日期计算、税后工资估算、随机抽选和世界时间转换等 36 种实用工具。'],
-  en: ['Little Tools — Free Online Utilities', '36 useful browser-based tools for everyday tasks and development, including date and salary calculators, random draws, and world time conversion.'],
+  ko: ['온라인 무료 도구 모음', '메트로놈, 날짜·급여 계산기, 이미지 편집기와 세계 시간 변환기 등 일상과 개발에 유용한 46가지 온라인 도구.'],
+  ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、日付・給与計算、画像編集、世界時間変換など、日常や開発に役立つ46の無料オンラインツール。'],
+  zh: ['实用小工具 — 免费在线工具集', '节拍器、日期与工资计算、图片编辑和世界时间转换等 46 种实用工具。'],
+  en: ['Little Tools — Free Online Utilities', '46 useful browser-based tools for everyday tasks and development, including calculators, image editing, and world time conversion.'],
 };
 const tools = {
   ko: [
@@ -139,17 +141,23 @@ const addedMetadata = {
 };
 const addedMetadataIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12];
 const addedMetadataAt = (locale, index) => addedMetadata[locale][addedMetadataIndexes[index - 25]];
+const imageMetadata = {
+  ko: [['이미지 크기 변경기','픽셀 크기와 비율을 유지해 이미지 크기를 변경합니다.'],['이미지 포맷 변환기','PNG, JPG, WebP 형식을 브라우저에서 변환합니다.'],['이미지 압축기','품질을 조절하고 변환 전후 파일 크기를 비교합니다.'],['이미지 자르기','이미지에서 영역을 드래그해 비율에 맞춰 자릅니다.'],['이미지 색상 추출기','이미지를 클릭해 해당 픽셀의 HEX 색상을 추출합니다.'],['파비콘 생성기','PNG에서 여러 크기의 아이콘과 멀티사이즈 ICO를 만듭니다.'],['이미지 Base64 변환기','이미지와 Data URL을 서로 변환하고 미리 봅니다.'],['SVG 최적화기','SVG의 불필요한 정보와 위험한 요소를 정리합니다.'],['이미지 워터마크','텍스트나 이미지 워터마크를 넣어 저장합니다.'],['QR 디자인 생성기','색상·테두리·로고를 적용한 QR 코드를 만듭니다.']],
+  en: [['Image Resizer','Resize images by pixels while optionally preserving aspect ratio.'],['Image Format Converter','Convert PNG, JPG, and WebP in your browser.'],['Image Compressor','Adjust quality and compare file sizes before and after.'],['Image Cropper','Drag to select and crop an image with a chosen aspect ratio.'],['Image Color Picker','Click an image to extract a pixel color as HEX.'],['Favicon Generator','Create common icon sizes and a multi-size ICO from PNG.'],['Image Base64 Converter','Convert images and Data URLs both ways with a preview.'],['SVG Optimizer','Clean unnecessary SVG data and remove unsafe elements.'],['Image Watermark','Add a text or image watermark and download the result.'],['QR Design Generator','Create QR codes with custom colors, borders, and a logo.']],
+  ja: [['画像リサイズ','縦横比を保ちながらピクセルサイズを変更します。'],['画像形式変換','PNG、JPG、WebPをブラウザー内で変換します。'],['画像圧縮','画質を調整し、変換前後のファイルサイズを比較します。'],['画像トリミング','画像上をドラッグして比率を選び切り取ります。'],['画像カラーピッカー','画像をクリックしてピクセルのHEX色を取得します。'],['ファビコン生成','PNGから複数サイズのアイコンとICOを作成します。'],['画像Base64変換','画像とData URLを相互変換してプレビューします。'],['SVG最適化','不要なSVGデータと危険な要素を整理します。'],['画像ウォーターマーク','テキストまたは画像の透かしを追加します。'],['QRデザイン生成','色・枠・ロゴを設定したQRコードを作成します。']],
+  zh: [['图片尺寸调整','按像素调整尺寸，并可保持宽高比例。'],['图片格式转换','在浏览器中转换 PNG、JPG 和 WebP。'],['图片压缩','调整质量并比较转换前后的文件大小。'],['图片裁剪','拖动选择区域并按指定比例裁剪。'],['图片取色器','点击图片提取像素的 HEX 颜色。'],['网站图标生成器','从 PNG 生成常见尺寸图标和多尺寸 ICO。'],['图片 Base64 转换器','双向转换图片与 Data URL 并预览。'],['SVG 优化器','清理多余 SVG 数据并移除不安全元素。'],['图片水印','添加文字或图片水印并下载。'],['二维码设计生成器','自定义颜色、边框和 Logo 来生成二维码。']],
+};
 
 export function homeMetadata(locale = 'ko') {
   const [title, description] = home[locale] || home.ko;
-  const href = locale === 'ko' ? '/ko/' : `/${locale}/`;
-  return { title, description, alternates: { canonical: href, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}/${lang}/`]).concat([['x-default', `${siteOrigin}/ko/`]])) } };
+  const href = publicPath(locale === 'ko' ? '/ko/' : `/${locale}/`);
+  return { title, description, alternates: { canonical: href, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}${publicPath(`/${lang}/`)}`]).concat([['x-default', `${siteOrigin}${publicPath('/ko/')}`]])) } };
 }
 
 export function toolMetadata(locale = 'ko', slug) {
   const toolIndex = toolSlugs.indexOf(slug);
   if (toolIndex < 0) return homeMetadata(locale);
-  const [name, description] = slug === 'morse-code' ? morseMetadata[locale] : slug === 'currency-converter' ? currencyMetadata[locale] : slug === 'unit-converter' ? unitMetadata[locale] : slug === 'jwt-tool' ? jwtMetadata[locale] : slug === 'db-meter' ? dbMeterMetadata[locale] : slug === 'tts' ? ttsMetadata[locale] : toolIndex >= 25 ? addedMetadataAt(locale, toolIndex) : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
-  const path = `/${locale}/tools/${slug}/`;
-  return { title: `${name} — tiny.tools`, description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}/${lang}/tools/${slug}/`]).concat([['x-default', `${siteOrigin}/ko/tools/${slug}/`]])) }, openGraph: { title: name, description, url: path, siteName: 'tiny.tools', locale } };
+  const [name, description] = slug === 'morse-code' ? morseMetadata[locale] : slug === 'currency-converter' ? currencyMetadata[locale] : slug === 'unit-converter' ? unitMetadata[locale] : slug === 'jwt-tool' ? jwtMetadata[locale] : slug === 'db-meter' ? dbMeterMetadata[locale] : slug === 'tts' ? ttsMetadata[locale] : toolIndex >= 36 ? imageMetadata[locale][toolIndex - 36] : toolIndex >= 25 ? addedMetadataAt(locale, toolIndex) : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
+  const path = publicPath(`/${locale}/tools/${slug}/`);
+  return { title: `${name} — tiny.tools`, description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}${publicPath(`/${lang}/tools/${slug}/`)}`]).concat([['x-default', `${siteOrigin}${publicPath(`/ko/tools/${slug}/`)}`]])) }, openGraph: { title: name, description, url: `${siteOrigin}${path}`, siteName: 'tiny.tools', locale } };
 }

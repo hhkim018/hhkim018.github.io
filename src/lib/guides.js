@@ -1,4 +1,4 @@
-import { locales, siteOrigin } from './seo.js';
+import { locales, siteBasePath, siteOrigin } from './seo.js';
 
 export const guideSlugs = ['barcode-formats', 'qr-code-basics'];
 
@@ -118,6 +118,6 @@ export function getGuide(locale, slug) {
 export function getGuideMetadata(locale, slug) {
   const guide = getGuide(locale, slug);
   if (!guide) return {};
-  const path = `/${locale}/guides/${slug}/`;
-  return { title: `${guide.title} — tiny.tools`, description: guide.description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}/${lang}/guides/${slug}/`]).concat([['x-default', `${siteOrigin}/ko/guides/${slug}/`]])) }, openGraph: { title: guide.title, description: guide.description, url: path, siteName: 'tiny.tools', locale } };
+  const path = `${siteBasePath}/${locale}/guides/${slug}/`;
+  return { title: `${guide.title} — tiny.tools`, description: guide.description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}${siteBasePath}/${lang}/guides/${slug}/`]).concat([['x-default', `${siteOrigin}${siteBasePath}/ko/guides/${slug}/`]])) }, openGraph: { title: guide.title, description: guide.description, url: `${siteOrigin}${path}`, siteName: 'tiny.tools', locale } };
 }

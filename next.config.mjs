@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const nextConfig = {
-  // The deployment environment runs Next.js from the standalone server bundle.
-  output: 'standalone',
+  output: 'export',
+  basePath,
+  images: {
+    unoptimized: true,
+  },
   trailingSlash: true,
 };
 
