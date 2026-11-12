@@ -9,7 +9,7 @@ gtag('js', new Date());`}
     </Script>
     <Script
       id="google-tag-manager"
-      src="https://www.googletagmanager.com/gtm.js?id=GTM-W9KPWM24"
+      src="https://www.googletagmanager.com/gtm.js?id=GTM-THHXZM27"
       strategy="afterInteractive"
     />
   </>;
