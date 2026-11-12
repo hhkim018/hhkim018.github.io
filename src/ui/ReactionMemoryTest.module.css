@@ -1,0 +1,139 @@
+.root {
+  gap: 14px;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.tabs button {
+  justify-content: center;
+}
+
+.record {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.record strong {
+  color: var(--green-dark);
+  font: 700 16px 'DM Mono', monospace;
+}
+
+.gamePanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.gamePanel > p {
+  margin: 0;
+}
+
+.target {
+  width: 100%;
+  min-height: 170px;
+  border: 1px solid #dfe8df;
+  border-radius: 14px;
+  padding: 20px;
+  background: #f1f5f0;
+  color: #58695d;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+  transition: background .15s, color .15s, transform .15s;
+}
+
+.target:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.target:not(:disabled) {
+  cursor: pointer;
+}
+
+.target.ready {
+  transform: scale(1.01);
+  border-color: #3b8059;
+  background: #3b8059;
+  color: #fff;
+}
+
+.display {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 116px;
+  border-radius: 14px;
+  background: #f1f5f0;
+  color: var(--green-dark);
+  font: 700 clamp(28px, 8vw, 42px) 'DM Mono', monospace;
+  letter-spacing: .18em;
+}
+
+.keypad {
+  display: grid;
+  width: min(100%, 310px);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.keypad button {
+  justify-content: center;
+  min-height: 44px;
+  font: 700 15px 'DM Mono', monospace;
+}
+
+.actions {
+  display: flex;
+  width: min(100%, 310px);
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.actions button:last-child {
+  flex: 1;
+  justify-content: center;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.result strong {
+  color: var(--green-dark);
+  font-size: 24px;
+}
+
+.share {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.share span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .target {
+    min-height: 145px;
+    font-size: 15px;
+  }
+}

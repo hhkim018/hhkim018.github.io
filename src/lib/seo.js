@@ -1,14 +1,14 @@
 export const locales = ['ko', 'ja', 'zh', 'en'];
-export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter', 'dice-roller', 'stock-average-calculator', 'character-byte-counter', 'percentage-discount-calculator', 'interest-calculator', 'character-encoding-converter', 'morse-code', 'currency-converter', 'unit-converter', 'jwt-tool', 'db-meter', 'tts', 'date-calculator', 'age-calculator', 'salary-calculator', 'hourly-wage-calculator', 'loan-calculator', 'vat-calculator', 'pyeong-calculator', 'bmi-calculator', 'aspect-ratio-calculator', 'random-draw', 'world-time-converter', 'image-resizer', 'image-format-converter', 'image-compressor', 'image-cropper', 'image-color-picker', 'favicon-generator', 'image-base64-converter', 'svg-optimizer', 'image-watermark', 'qr-design-generator'];
+export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter', 'dice-roller', 'stock-average-calculator', 'character-byte-counter', 'percentage-discount-calculator', 'interest-calculator', 'character-encoding-converter', 'morse-code', 'currency-converter', 'unit-converter', 'jwt-tool', 'db-meter', 'tts', 'date-calculator', 'age-calculator', 'salary-calculator', 'hourly-wage-calculator', 'loan-calculator', 'vat-calculator', 'pyeong-calculator', 'bmi-calculator', 'aspect-ratio-calculator', 'random-draw', 'world-time-converter', 'image-resizer', 'image-format-converter', 'image-compressor', 'image-cropper', 'image-color-picker', 'favicon-generator', 'image-base64-converter', 'svg-optimizer', 'image-watermark', 'qr-design-generator', 'reaction-memory-test', 'websocket-client', 'notification-tester'];
 export const siteOrigin = (process.env.SITE_URL || 'https://tools.gogo-tools.workers.dev').replace(/\/$/, '');
 export const siteBasePath = (process.env.NEXT_PUBLIC_BASE_PATH || '').replace(/\/$/, '');
 const publicPath = (path) => `${siteBasePath}${path}`;
 
 const home = {
-  ko: ['온라인 무료 도구 모음', '메트로놈, 날짜·급여 계산기, 이미지 편집기와 세계 시간 변환기 등 일상과 개발에 유용한 46가지 온라인 도구.'],
-  ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、日付・給与計算、画像編集、世界時間変換など、日常や開発に役立つ46の無料オンラインツール。'],
-  zh: ['实用小工具 — 免费在线工具集', '节拍器、日期与工资计算、图片编辑和世界时间转换等 46 种实用工具。'],
-  en: ['Little Tools — Free Online Utilities', '46 useful browser-based tools for everyday tasks and development, including calculators, image editing, and world time conversion.'],
+  ko: ['온라인 무료 도구 모음', '메트로놈, 계산기, 이미지 편집기, 반응속도·기억력 테스트, WebSocket·알림 테스트 등 일상과 개발에 유용한 49가지 온라인 도구.'],
+  ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、計算ツール、画像編集、反応速度・記憶力、WebSocket・通知テストなど、日常や開発に役立つ49の無料オンラインツール。'],
+  zh: ['实用小工具 — 免费在线工具集', '节拍器、计算器、图片编辑、反应速度与记忆力、WebSocket 与通知测试等 49 种实用工具。'],
+  en: ['Little Tools — Free Online Utilities', '49 useful browser-based tools, including calculators, image editing, reaction and memory tests, a WebSocket client, and notification testing.'],
 };
 const tools = {
   ko: [
@@ -147,6 +147,30 @@ const imageMetadata = {
   ja: [['画像リサイズ','縦横比を保ちながらピクセルサイズを変更します。'],['画像形式変換','PNG、JPG、WebPをブラウザー内で変換します。'],['画像圧縮','画質を調整し、変換前後のファイルサイズを比較します。'],['画像トリミング','画像上をドラッグして比率を選び切り取ります。'],['画像カラーピッカー','画像をクリックしてピクセルのHEX色を取得します。'],['ファビコン生成','PNGから複数サイズのアイコンとICOを作成します。'],['画像Base64変換','画像とData URLを相互変換してプレビューします。'],['SVG最適化','不要なSVGデータと危険な要素を整理します。'],['画像ウォーターマーク','テキストまたは画像の透かしを追加します。'],['QRデザイン生成','色・枠・ロゴを設定したQRコードを作成します。']],
   zh: [['图片尺寸调整','按像素调整尺寸，并可保持宽高比例。'],['图片格式转换','在浏览器中转换 PNG、JPG 和 WebP。'],['图片压缩','调整质量并比较转换前后的文件大小。'],['图片裁剪','拖动选择区域并按指定比例裁剪。'],['图片取色器','点击图片提取像素的 HEX 颜色。'],['网站图标生成器','从 PNG 生成常见尺寸图标和多尺寸 ICO。'],['图片 Base64 转换器','双向转换图片与 Data URL 并预览。'],['SVG 优化器','清理多余 SVG 数据并移除不安全元素。'],['图片水印','添加文字或图片水印并下载。'],['二维码设计生成器','自定义颜色、边框和 Logo 来生成二维码。']],
 };
+const reactionMemoryMetadata = {
+  ko: ['반응속도·기억력 테스트', '반응속도 5회 평균과 숫자 기억력을 측정하고 브라우저에 최고 기록을 저장해 친구와 비교합니다.'],
+  en: ['Reaction & Memory Test', 'Measure a five-round reaction average and digit memory, save personal bests in your browser, and compare scores with friends.'],
+  ja: ['反応速度・記憶力テスト', '反応速度の5回平均と数字記憶力を測定し、自己ベストをブラウザーに保存して友達と比べます。'],
+  zh: ['反应速度与记忆力测试', '测量 5 次反应速度平均值和数字记忆力，在浏览器保存最佳成绩并与朋友比较。'],
+};
+const browserToolMetadata = {
+  ko: [
+    ['WebSocket 클라이언트', '브라우저에서 WebSocket 서버에 직접 연결해 텍스트를 보내고 응답과 연결 로그를 확인합니다.'],
+    ['브라우저 알림·토스트·알람 테스트', '브라우저 알림 권한, 화면 토스트와 타이머 알람을 테스트합니다.'],
+  ],
+  en: [
+    ['WebSocket Client', 'Connect to a WebSocket server, send text messages, and inspect replies and connection logs.'],
+    ['Notification, Toast & Alarm Tester', 'Test browser notification permission, on-page toasts, and timed alarms.'],
+  ],
+  ja: [
+    ['WebSocketクライアント', 'WebSocketサーバーに接続し、テキスト送信、応答、接続ログを確認します。'],
+    ['通知・トースト・アラームテスト', 'ブラウザー通知の権限、画面内トースト、タイマーアラームをテストします。'],
+  ],
+  zh: [
+    ['WebSocket 客户端', '连接 WebSocket 服务器、发送文本并查看响应与连接日志。'],
+    ['通知、Toast 与闹钟测试器', '测试浏览器通知权限、页面 Toast 和定时闹钟。'],
+  ],
+};
 
 export function homeMetadata(locale = 'ko') {
   const [title, description] = home[locale] || home.ko;
@@ -157,7 +181,7 @@ export function homeMetadata(locale = 'ko') {
 export function toolMetadata(locale = 'ko', slug) {
   const toolIndex = toolSlugs.indexOf(slug);
   if (toolIndex < 0) return homeMetadata(locale);
-  const [name, description] = slug === 'morse-code' ? morseMetadata[locale] : slug === 'currency-converter' ? currencyMetadata[locale] : slug === 'unit-converter' ? unitMetadata[locale] : slug === 'jwt-tool' ? jwtMetadata[locale] : slug === 'db-meter' ? dbMeterMetadata[locale] : slug === 'tts' ? ttsMetadata[locale] : toolIndex >= 36 ? imageMetadata[locale][toolIndex - 36] : toolIndex >= 25 ? addedMetadataAt(locale, toolIndex) : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
+  const [name, description] = slug === 'morse-code' ? morseMetadata[locale] : slug === 'currency-converter' ? currencyMetadata[locale] : slug === 'unit-converter' ? unitMetadata[locale] : slug === 'jwt-tool' ? jwtMetadata[locale] : slug === 'db-meter' ? dbMeterMetadata[locale] : slug === 'tts' ? ttsMetadata[locale] : slug === 'reaction-memory-test' ? reactionMemoryMetadata[locale] : slug === 'websocket-client' ? browserToolMetadata[locale][0] : slug === 'notification-tester' ? browserToolMetadata[locale][1] : toolIndex >= 36 ? imageMetadata[locale][toolIndex - 36] : toolIndex >= 25 ? addedMetadataAt(locale, toolIndex) : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
   const path = publicPath(`/${locale}/tools/${slug}/`);
-  return { title: `${name} — tiny.tools`, description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}${publicPath(`/${lang}/tools/${slug}/`)}`]).concat([['x-default', `${siteOrigin}${publicPath(`/ko/tools/${slug}/`)}`]])) }, openGraph: { title: name, description, url: `${siteOrigin}${path}`, siteName: 'tiny.tools', locale } };
+  return { title: `${name} — Tools`, description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}${publicPath(`/${lang}/tools/${slug}/`)}`]).concat([['x-default', `${siteOrigin}${publicPath(`/ko/tools/${slug}/`)}`]])) }, openGraph: { title: name, description, url: `${siteOrigin}${path}`, siteName: 'Tools', locale } };
 }

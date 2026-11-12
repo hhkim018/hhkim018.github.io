@@ -21,7 +21,7 @@ export default async function GuidePage({ params }) {
   if (!guide) notFound();
   const toolHref = `/${locale}/tools/${generatorFor[slug]}/`;
   return <main className="guide-page-main">
-    <nav className="guide-breadcrumb"><Link href={`/${locale}/`}>tiny.tools</Link><span>/</span><span>{guide.title}</span></nav>
+    <nav className="guide-breadcrumb"><Link href={`/${locale}/`}>Tools</Link><span>/</span><span>{guide.title}</span></nav>
     <article className="guide-article">
       <span className="section-kicker">{guide.relatedTitle}</span>
       <h1>{guide.title}</h1>

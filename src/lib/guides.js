@@ -119,5 +119,5 @@ export function getGuideMetadata(locale, slug) {
   const guide = getGuide(locale, slug);
   if (!guide) return {};
   const path = `${siteBasePath}/${locale}/guides/${slug}/`;
-  return { title: `${guide.title} — tiny.tools`, description: guide.description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}${siteBasePath}/${lang}/guides/${slug}/`]).concat([['x-default', `${siteOrigin}${siteBasePath}/ko/guides/${slug}/`]])) }, openGraph: { title: guide.title, description: guide.description, url: `${siteOrigin}${path}`, siteName: 'tiny.tools', locale } };
+  return { title: `${guide.title} — Tools`, description: guide.description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}${siteBasePath}/${lang}/guides/${slug}/`]).concat([['x-default', `${siteOrigin}${siteBasePath}/ko/guides/${slug}/`]])) }, openGraph: { title: guide.title, description: guide.description, url: `${siteOrigin}${path}`, siteName: 'Tools', locale } };
 }
