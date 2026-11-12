@@ -1,12 +1,12 @@
 export const locales = ['ko', 'ja', 'zh', 'en'];
-export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter', 'dice-roller', 'stock-average-calculator', 'character-byte-counter', 'percentage-discount-calculator', 'interest-calculator', 'character-encoding-converter', 'morse-code'];
+export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter', 'dice-roller', 'stock-average-calculator', 'character-byte-counter', 'percentage-discount-calculator', 'interest-calculator', 'character-encoding-converter', 'morse-code', 'currency-converter', 'unit-converter', 'jwt-tool', 'db-meter', 'tts', 'date-calculator', 'age-calculator', 'salary-calculator', 'hourly-wage-calculator', 'loan-calculator', 'vat-calculator', 'pyeong-calculator', 'bmi-calculator', 'aspect-ratio-calculator', 'random-draw', 'world-time-converter'];
 export const siteOrigin = (process.env.SITE_URL || 'https://tools.gogo-tools.workers.dev').replace(/\/$/, '');
 
 const home = {
-  ko: ['온라인 무료 도구 모음', '메트로놈, 스톱워치, 모스부호 변환기, QR 코드 등 일상과 개발에 유용한 20가지 온라인 도구. 가입 없이 브라우저에서 사용하세요.'],
-  ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、ストップウォッチ、モールス信号変換、QRコードなど、日常や開発に役立つ20の無料オンラインツール。'],
-  zh: ['实用小工具 — 免费在线工具集', '节拍器、秒表、摩斯密码转换、二维码等 20 种日常与开发工具。无需注册，在浏览器中使用。'],
-  en: ['Little Tools — Free Online Utilities', '20 useful browser-based tools for everyday tasks and development, including a metronome, Morse code translator, QR code maker, and JSON formatter.'],
+  ko: ['온라인 무료 도구 모음', '메트로놈, 날짜 계산기, 실수령액 계산기, 랜덤 추첨기, 세계 시간 변환기 등 일상과 개발에 유용한 36가지 온라인 도구.'],
+  ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、日付計算、手取り給与計算、抽選、世界時間変換など、日常や開発に役立つ36の無料オンラインツール。'],
+  zh: ['实用小工具 — 免费在线工具集', '节拍器、日期计算、税后工资估算、随机抽选和世界时间转换等 36 种实用工具。'],
+  en: ['Little Tools — Free Online Utilities', '36 useful browser-based tools for everyday tasks and development, including date and salary calculators, random draws, and world time conversion.'],
 };
 const tools = {
   ko: [
@@ -101,6 +101,44 @@ const morseMetadata = {
   zh: ['摩斯密码转换与播放器', '在英文文本与国际摩斯密码之间互相转换，并可调节播放速度收听信号音。'],
   en: ['Morse Code Translator and Player', 'Translate English text to International Morse code, decode it back, and listen to timed tones at an adjustable speed.'],
 };
+const currencyMetadata = {
+  ko: ['환율 계산기', 'Frankfurter 기준 환율로 출발 통화와 도착 통화를 선택해 금액을 변환합니다.'],
+  ja: ['為替計算ツール', 'Frankfurterの基準レートを使い、変換元と変換先の通貨を選んで換算します。'],
+  zh: ['汇率计算器', '使用 Frankfurter 参考汇率，选择来源货币和目标货币进行换算。'],
+  en: ['Currency Converter', 'Convert an amount between source and destination currencies using Frankfurter reference rates.'],
+};
+const unitMetadata = {
+  ko: ['단위 환산기', '길이, 무게, 온도, 넓이, 부피, 속도와 시간을 브라우저에서 변환합니다.'],
+  ja: ['単位変換ツール', '長さ、重さ、温度、面積、体積、速度、時間の単位をブラウザーで変換します。'],
+  zh: ['单位换算器', '在浏览器中换算长度、重量、温度、面积、体积、速度和时间单位。'],
+  en: ['Unit Converter', 'Convert units for length, weight, temperature, area, volume, speed, and time in your browser.'],
+};
+const jwtMetadata = {
+  ko: ['JWT 인코딩·디코딩', 'JWT 헤더와 페이로드를 디코딩하고 HS256 시크릿 키 서명을 생성하거나 검증합니다.'],
+  ja: ['JWTエンコード・デコード', 'JWTのヘッダーとペイロードをデコードし、HS256シークレットキー署名を作成・検証します。'],
+  zh: ['JWT 编码 / 解码', '解码 JWT 标头和负载，并使用 HS256 密钥生成或验证签名。'],
+  en: ['JWT Encoder / Decoder', 'Decode JWT headers and payloads, then create or verify HS256 signatures with a secret key.'],
+};
+const dbMeterMetadata = {
+  ko: ['데시벨 측정기', '브라우저 마이크를 사용해 실시간 dBFS 음량과 피크 레벨을 확인합니다.'],
+  ja: ['デシベル測定ツール', 'ブラウザーのマイクを使い、リアルタイムのdBFS音量とピークレベルを表示します。'],
+  zh: ['分贝测量器', '使用浏览器麦克风实时查看 dBFS 音量和峰值。'],
+  en: ['Decibel Meter', 'View live dBFS microphone input and peak levels in your browser.'],
+};
+const ttsMetadata = {
+  ko: ['TTS 음성 읽기', '텍스트를 브라우저 음성으로 읽고 언어, 목소리와 속도를 조절합니다.'],
+  ja: ['テキスト読み上げ', 'ブラウザー音声で文章を読み上げ、言語、声、速度を調整します。'],
+  zh: ['文本转语音', '使用浏览器语音朗读文本，并调整语言、音色和语速。'],
+  en: ['Text to Speech', 'Read text aloud with browser voices and adjust the language, voice, and speed.'],
+};
+const addedMetadata = {
+  ko: [['날짜 계산기','날짜 간 일수, D-Day, 날짜 더하기와 빼기를 계산합니다.'],['만나이 계산기','생년월일을 기준으로 만 나이와 다음 생일까지 남은 날을 계산합니다.'],['연봉 실수령액 계산기','한국 2026년 기준 세금과 근로자 부담 보험료를 추정합니다.'],['시급·월급 계산기','주당 근무시간과 시급으로 주휴수당 선택 적용 급여를 계산합니다.'],['대출 상환 계산기','원리금균등과 원금균등 상환액 및 월별 잔액을 확인합니다.'],['부가세 계산기','공급가액, 부가세와 합계금액을 서로 계산합니다.'],['평수 계산기','제곱미터와 평을 양방향 변환합니다.'],['BMI 계산기','키와 몸무게로 체질량지수를 계산합니다.'],['비율 계산기','가로세로 비율을 유지해 크기를 계산합니다.'],['랜덤 추첨기','목록에서 중복 없이 무작위 항목을 뽑습니다.'],['사다리타기','참가자와 결과를 무작위 사다리로 연결합니다.'],['룰렛','항목을 추가해 룰렛으로 무작위 선택합니다.'],['세계 시간 변환기','도시별 현지 시간을 비교하고 시간대를 변환합니다.']],
+  en: [['Date Calculator','Count days, check a countdown, or add and subtract dates.'],['Age Calculator','Calculate age from a birth date and days until the next birthday.'],['Take-home Salary Estimator','Estimate Korean 2026 income tax and employee insurance deductions.'],['Hourly and Monthly Pay','Calculate pay from weekly hours and hourly wage, with optional weekly holiday pay.'],['Loan Repayment Calculator','Compare equal payment and equal principal plans with a monthly schedule.'],['VAT Calculator','Calculate net amount, VAT, or total in either direction.'],['Pyeong Converter','Convert square meters and pyeong both ways.'],['BMI Calculator','Calculate body mass index from height and weight.'],['Aspect Ratio Calculator','Resize while preserving a width-to-height ratio.'],['Random Draw','Choose unique winners at random from a list.'],['Ladder Game','Randomly connect participants to outcomes with a ladder.'],['Roulette','Add choices and spin to select one at random.'],['World Time Converter','Compare local times across cities and time zones.']],
+  ja: [['日付計算','日数・D-Dayの確認や日付の加算・減算を行います。'],['満年齢計算','生年月日から満年齢と次の誕生日までの日数を計算します。'],['手取り給与の目安','韓国2026年基準で税金と本人負担保険料を推定します。'],['時給・月給計算','週の勤務時間と時給から週休手当を選択適用して計算します。'],['ローン返済計算','元利均等・元金均等の返済額と月次残高を比較します。'],['VAT計算','税抜額・VAT・税込額を相互に計算します。'],['坪換算','平方メートルと坪を相互に変換します。'],['BMI計算','身長と体重からBMIを計算します。'],['比率計算','縦横比を保ったままサイズを計算します。'],['ランダム抽選','リストから重複なしで抽選します。'],['あみだくじ','参加者と結果をランダムに結びます。'],['ルーレット','項目を追加してランダムに選びます。'],['世界時間変換','都市別時刻を比較しタイムゾーンを変換します。']],
+  zh: [['日期计算器','计算日期间隔、倒数日，并对日期加减天数。'],['周岁计算器','根据出生日期计算周岁和距离下次生日的天数。'],['税后工资估算器','按韩国 2026 年标准估算所得税和个人承担的保险费。'],['时薪与月薪计算器','根据每周工时和时薪计算工资，可选计入周休津贴。'],['贷款还款计算器','比较等额本息与等额本金，并查看逐月还款计划。'],['增值税计算器','互相计算未税金额、增值税和含税总额。'],['坪数换算器','双向换算平方米和坪。'],['BMI 计算器','根据身高和体重计算 BMI。'],['比例计算器','保持宽高比例计算缩放尺寸。'],['随机抽选器','从名单中随机抽取不重复的结果。'],['爬梯抽签','用随机梯子将参与者与结果配对。'],['转盘抽选','添加选项并旋转随机选择。'],['世界时间转换器','比较不同城市的当地时间并转换时区。']],
+};
+const addedMetadataIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12];
+const addedMetadataAt = (locale, index) => addedMetadata[locale][addedMetadataIndexes[index - 25]];
 
 export function homeMetadata(locale = 'ko') {
   const [title, description] = home[locale] || home.ko;
@@ -111,7 +149,7 @@ export function homeMetadata(locale = 'ko') {
 export function toolMetadata(locale = 'ko', slug) {
   const toolIndex = toolSlugs.indexOf(slug);
   if (toolIndex < 0) return homeMetadata(locale);
-  const [name, description] = slug === 'morse-code' ? morseMetadata[locale] : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
+  const [name, description] = slug === 'morse-code' ? morseMetadata[locale] : slug === 'currency-converter' ? currencyMetadata[locale] : slug === 'unit-converter' ? unitMetadata[locale] : slug === 'jwt-tool' ? jwtMetadata[locale] : slug === 'db-meter' ? dbMeterMetadata[locale] : slug === 'tts' ? ttsMetadata[locale] : toolIndex >= 25 ? addedMetadataAt(locale, toolIndex) : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
   const path = `/${locale}/tools/${slug}/`;
   return { title: `${name} — tiny.tools`, description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}/${lang}/tools/${slug}/`]).concat([['x-default', `${siteOrigin}/ko/tools/${slug}/`]])) }, openGraph: { title: name, description, url: path, siteName: 'tiny.tools', locale } };
 }
