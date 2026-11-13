@@ -9,10 +9,10 @@ export default function sitemap() {
     ...locales.flatMap((locale) => toolSlugs.map((slug) => ({ path: `/${locale}/tools/${slug}/`, priority: 0.7 }))),
     ...locales.flatMap((locale) => guideSlugs.map((slug) => ({ path: `/${locale}/guides/${slug}/`, priority: 0.65 }))),
   ];
-  return routes.map(({ path, priority }) => {
-    const alternatePath = path.replace(/^\/(ko|ja|zh|en)\//, '/');
-    const alternates = Object.fromEntries(locales.map((locale) => [locale, `${siteOrigin}/${locale}${alternatePath}`]));
-    alternates['x-default'] = `${siteOrigin}/ko${alternatePath}`;
-    return { url: `${siteOrigin}${path}`, changeFrequency: 'monthly', priority, alternates: { languages: alternates } };
-  });
+
+  return routes.map(({ path, priority }) => ({
+    url: `${siteOrigin}${path}`,
+    changeFrequency: 'monthly',
+    priority,
+  }));
 }

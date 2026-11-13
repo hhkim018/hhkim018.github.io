@@ -1,6 +1,6 @@
 export const locales = ['ko', 'ja', 'zh', 'en'];
 export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter', 'dice-roller', 'stock-average-calculator', 'character-byte-counter', 'percentage-discount-calculator', 'interest-calculator', 'character-encoding-converter', 'morse-code', 'currency-converter', 'unit-converter', 'jwt-tool', 'db-meter', 'tts', 'date-calculator', 'age-calculator', 'salary-calculator', 'hourly-wage-calculator', 'loan-calculator', 'vat-calculator', 'pyeong-calculator', 'bmi-calculator', 'aspect-ratio-calculator', 'random-draw', 'world-time-converter', 'image-resizer', 'image-format-converter', 'image-compressor', 'image-cropper', 'image-color-picker', 'favicon-generator', 'image-base64-converter', 'svg-optimizer', 'image-watermark', 'qr-design-generator', 'reaction-memory-test', 'websocket-client', 'notification-tester'];
-export const siteOrigin = (process.env.SITE_URL || 'https://tools.gogo-tools.workers.dev').replace(/\/$/, '');
+export const siteOrigin = (process.env.SITE_URL || 'https://hhkim018.github.io').replace(/\/$/, '');
 export const siteBasePath = (process.env.NEXT_PUBLIC_BASE_PATH || '').replace(/\/$/, '');
 const publicPath = (path) => `${siteBasePath}${path}`;
 
