@@ -178,10 +178,18 @@ export function homeMetadata(locale = 'ko') {
   return { title, description, alternates: { canonical: href, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}${publicPath(`/${lang}/`)}`]).concat([['x-default', `${siteOrigin}${publicPath('/ko/')}`]])) } };
 }
 
+const coordinateMetadata = {
+  ko: [['좌표 변환기', '위경도와 웹 메르카토르, 국내 및 UTM 좌표계를 변환합니다.'], ['좌표 형식 확인기', '좌표 표기 형식과 가능한 좌표계 후보를 확인합니다.']],
+  en: [['Coordinate Converter', 'Convert latitude and longitude, Web Mercator, and Korean projected coordinates.'], ['Coordinate Format Identifier', 'Identify coordinate notation and possible coordinate systems.']],
+  ja: [['座標変換', '緯度経度、Webメルカトル、韓国の平面座標とUTM座標を変換します。'], ['座標形式の確認', '座標の表記形式と座標系の候補を確認します。']],
+  zh: [['坐标转换器', '转换经纬度、Web 墨卡托、韩国平面坐标和 UTM 坐标。'], ['坐标格式识别', '检查坐标表示形式和可能的坐标系。']],
+};
+toolSlugs.push('coordinate-converter', 'coordinate-identifier');
+
 export function toolMetadata(locale = 'ko', slug) {
   const toolIndex = toolSlugs.indexOf(slug);
   if (toolIndex < 0) return homeMetadata(locale);
-  const [name, description] = slug === 'morse-code' ? morseMetadata[locale] : slug === 'currency-converter' ? currencyMetadata[locale] : slug === 'unit-converter' ? unitMetadata[locale] : slug === 'jwt-tool' ? jwtMetadata[locale] : slug === 'db-meter' ? dbMeterMetadata[locale] : slug === 'tts' ? ttsMetadata[locale] : slug === 'reaction-memory-test' ? reactionMemoryMetadata[locale] : slug === 'websocket-client' ? browserToolMetadata[locale][0] : slug === 'notification-tester' ? browserToolMetadata[locale][1] : toolIndex >= 36 ? imageMetadata[locale][toolIndex - 36] : toolIndex >= 25 ? addedMetadataAt(locale, toolIndex) : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
+  const [name, description] = slug === 'coordinate-converter' ? coordinateMetadata[locale][0] : slug === 'coordinate-identifier' ? coordinateMetadata[locale][1] : slug === 'morse-code' ? morseMetadata[locale] : slug === 'currency-converter' ? currencyMetadata[locale] : slug === 'unit-converter' ? unitMetadata[locale] : slug === 'jwt-tool' ? jwtMetadata[locale] : slug === 'db-meter' ? dbMeterMetadata[locale] : slug === 'tts' ? ttsMetadata[locale] : slug === 'reaction-memory-test' ? reactionMemoryMetadata[locale] : slug === 'websocket-client' ? browserToolMetadata[locale][0] : slug === 'notification-tester' ? browserToolMetadata[locale][1] : toolIndex >= 36 ? imageMetadata[locale][toolIndex - 36] : toolIndex >= 25 ? addedMetadataAt(locale, toolIndex) : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
   const path = publicPath(`/${locale}/tools/${slug}/`);
   return { title: `${name} — Tools`, description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}${publicPath(`/${lang}/tools/${slug}/`)}`]).concat([['x-default', `${siteOrigin}${publicPath(`/ko/tools/${slug}/`)}`]])) }, openGraph: { title: name, description, url: `${siteOrigin}${path}`, siteName: 'Tools', locale } };
 }
