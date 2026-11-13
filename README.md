@@ -13,6 +13,6 @@ The site uses `/ko`, `/ja`, `/zh`, and `/en` locale paths. Tool slugs are shared
 
 ## Build and GitHub Pages
 
-`npm run build` creates a static site in `out/`, ready to publish with GitHub Pages. Pages are generated for each language home, tool, and guide, along with `sitemap.xml` and `robots.txt`. In GitHub Actions, set `SITE_URL` to the Pages origin and `NEXT_PUBLIC_BASE_PATH` to the Pages path before building. For a repository site these are typically `https://<owner>.github.io` and `/<repository>`; for a user or organization site the base path is empty. `actions/configure-pages` provides both values as workflow outputs.
+`npm run build` creates a static site in `out/`, ready to publish with GitHub Pages. Pages are generated for each language home, tool, and guide, along with `sitemap.xml` and `robots.txt`. This site is published at the origin root, so the GitHub Actions workflow sets `SITE_URL` to the Pages origin and leaves `NEXT_PUBLIC_BASE_PATH` empty. Routes therefore use paths such as `/ko/` and `/ko/tools/json-formatter/`.
 
 Barcode and QR image scanning run in the browser. Camera scanning requires HTTPS (or localhost) and camera permission. All tool inputs remain on the device.

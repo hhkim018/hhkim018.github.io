@@ -1,4 +1,4 @@
-import { locales, siteBasePath, siteOrigin, toolSlugs } from '../lib/seo.js';
+import { locales, siteOrigin, toolSlugs } from '../lib/seo.js';
 import { guideSlugs } from '../lib/guides.js';
 
 export const dynamic = 'force-static';
@@ -11,8 +11,8 @@ export default function sitemap() {
   ];
   return routes.map(({ path, priority }) => {
     const alternatePath = path.replace(/^\/(ko|ja|zh|en)\//, '/');
-    const alternates = Object.fromEntries(locales.map((locale) => [locale, `${siteOrigin}${siteBasePath}/${locale}${alternatePath}`]));
-    alternates['x-default'] = `${siteOrigin}${siteBasePath}/ko${alternatePath}`;
-    return { url: `${siteOrigin}${siteBasePath}${path}`, changeFrequency: 'monthly', priority, alternates: { languages: alternates } };
+    const alternates = Object.fromEntries(locales.map((locale) => [locale, `${siteOrigin}/${locale}${alternatePath}`]));
+    alternates['x-default'] = `${siteOrigin}/ko${alternatePath}`;
+    return { url: `${siteOrigin}${path}`, changeFrequency: 'monthly', priority, alternates: { languages: alternates } };
   });
 }
