@@ -1,3 +1,4 @@
+import { destinationToolMeta } from './travelDestinations.js';
 export const locales = ['ko', 'ja', 'zh', 'en'];
 export const toolSlugs = ['metronome', 'stopwatch', 'barcode', 'qr-code', 'json-formatter', 'url-encoder', 'uuid-generator', 'unix-timestamp', 'text-diff', 'base64', 'regex-tester', 'markdown-preview', 'color-converter', 'dice-roller', 'stock-average-calculator', 'character-byte-counter', 'percentage-discount-calculator', 'interest-calculator', 'character-encoding-converter', 'morse-code', 'currency-converter', 'unit-converter', 'jwt-tool', 'db-meter', 'tts', 'date-calculator', 'age-calculator', 'salary-calculator', 'hourly-wage-calculator', 'loan-calculator', 'vat-calculator', 'pyeong-calculator', 'bmi-calculator', 'aspect-ratio-calculator', 'random-draw', 'world-time-converter', 'image-resizer', 'image-format-converter', 'image-compressor', 'image-cropper', 'image-color-picker', 'favicon-generator', 'image-base64-converter', 'svg-optimizer', 'image-watermark', 'qr-design-generator', 'reaction-memory-test', 'websocket-client', 'notification-tester'];
 export const siteOrigin = (process.env.SITE_URL || 'https://hhkim018.github.io').replace(/\/$/, '');
@@ -5,10 +6,10 @@ export const siteBasePath = (process.env.NEXT_PUBLIC_BASE_PATH || '').replace(/\
 const publicPath = (path) => `${siteBasePath}${path}`;
 
 const home = {
-  ko: ['온라인 무료 도구 모음', '메트로놈, 계산기, 이미지 편집기, 반응속도·기억력 테스트, WebSocket·알림 테스트 등 일상과 개발에 유용한 49가지 온라인 도구.'],
-  ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、計算ツール、画像編集、反応速度・記憶力、WebSocket・通知テストなど、日常や開発に役立つ49の無料オンラインツール。'],
-  zh: ['实用小工具 — 免费在线工具集', '节拍器、计算器、图片编辑、反应速度与记忆力、WebSocket 与通知测试等 49 种实用工具。'],
-  en: ['Little Tools — Free Online Utilities', '49 useful browser-based tools, including calculators, image editing, reaction and memory tests, a WebSocket client, and notification testing.'],
+  ko: ['온라인 무료 도구 모음', '메트로놈, 계산기, 이미지 편집기, 반응속도·기억력 테스트, WebSocket·알림 테스트 등 일상과 개발에 유용한 52가지 온라인 도구.'],
+  ja: ['小さなツール — 無料オンラインツール', 'メトロノーム、計算ツール、画像編集、反応速度・記憶力、WebSocket・通知テストなど、日常や開発に役立つ52の無料オンラインツール。'],
+  zh: ['实用小工具 — 免费在线工具集', '节拍器、计算器、图片编辑、反应速度与记忆力、WebSocket 与通知测试等 52 种实用工具。'],
+  en: ['Little Tools — Free Online Utilities', '52 useful browser-based tools, including calculators, image editing, reaction and memory tests, a WebSocket client, and notification testing.'],
 };
 const tools = {
   ko: [
@@ -184,12 +185,12 @@ const coordinateMetadata = {
   ja: [['座標変換', '緯度経度、Webメルカトル、韓国の平面座標とUTM座標を変換します。'], ['座標形式の確認', '座標の表記形式と座標系の候補を確認します。']],
   zh: [['坐标转换器', '转换经纬度、Web 墨卡托、韩国平面坐标和 UTM 坐标。'], ['坐标格式识别', '检查坐标表示形式和可能的坐标系。']],
 };
-toolSlugs.push('coordinate-converter', 'coordinate-identifier');
+toolSlugs.push('coordinate-converter', 'coordinate-identifier', 'random-destination');
 
 export function toolMetadata(locale = 'ko', slug) {
   const toolIndex = toolSlugs.indexOf(slug);
   if (toolIndex < 0) return homeMetadata(locale);
-  const [name, description] = slug === 'coordinate-converter' ? coordinateMetadata[locale][0] : slug === 'coordinate-identifier' ? coordinateMetadata[locale][1] : slug === 'morse-code' ? morseMetadata[locale] : slug === 'currency-converter' ? currencyMetadata[locale] : slug === 'unit-converter' ? unitMetadata[locale] : slug === 'jwt-tool' ? jwtMetadata[locale] : slug === 'db-meter' ? dbMeterMetadata[locale] : slug === 'tts' ? ttsMetadata[locale] : slug === 'reaction-memory-test' ? reactionMemoryMetadata[locale] : slug === 'websocket-client' ? browserToolMetadata[locale][0] : slug === 'notification-tester' ? browserToolMetadata[locale][1] : toolIndex >= 36 ? imageMetadata[locale][toolIndex - 36] : toolIndex >= 25 ? addedMetadataAt(locale, toolIndex) : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
+  const [name, description] = slug === 'coordinate-converter' ? coordinateMetadata[locale][0] : slug === 'coordinate-identifier' ? coordinateMetadata[locale][1] : slug === 'morse-code' ? morseMetadata[locale] : slug === 'currency-converter' ? currencyMetadata[locale] : slug === 'unit-converter' ? unitMetadata[locale] : slug === 'jwt-tool' ? jwtMetadata[locale] : slug === 'db-meter' ? dbMeterMetadata[locale] : slug === 'tts' ? ttsMetadata[locale] : slug === 'reaction-memory-test' ? reactionMemoryMetadata[locale] : slug === 'websocket-client' ? browserToolMetadata[locale][0] : slug === 'notification-tester' ? browserToolMetadata[locale][1] : slug === 'random-destination' ? [destinationToolMeta[locale].title, destinationToolMeta[locale].description] : toolIndex >= 36 ? imageMetadata[locale][toolIndex - 36] : toolIndex >= 25 ? addedMetadataAt(locale, toolIndex) : tools[locale]?.[toolIndex] || tools.ko[toolIndex];
   const path = publicPath(`/${locale}/tools/${slug}/`);
   return { title: `${name} — Tools`, description, alternates: { canonical: path, languages: Object.fromEntries(locales.map((lang) => [lang, `${siteOrigin}${publicPath(`/${lang}/tools/${slug}/`)}`]).concat([['x-default', `${siteOrigin}${publicPath(`/ko/tools/${slug}/`)}`]])) }, openGraph: { title: name, description, url: `${siteOrigin}${path}`, siteName: 'Tools', locale } };
 }
