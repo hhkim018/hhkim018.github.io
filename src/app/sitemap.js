@@ -5,14 +5,12 @@ export const dynamic = 'force-static';
 
 export default function sitemap() {
   const routes = [
-    ...locales.map((locale) => ({ path: `/${locale}/`, priority: 1 })),
-    ...locales.flatMap((locale) => toolSlugs.map((slug) => ({ path: `/${locale}/tools/${slug}/`, priority: 0.7 }))),
-    ...locales.flatMap((locale) => guideSlugs.map((slug) => ({ path: `/${locale}/guides/${slug}/`, priority: 0.65 }))),
+    ...locales.map((locale) => ({ path: `/${locale}/` })),
+    ...locales.flatMap((locale) => toolSlugs.map((slug) => ({ path: `/${locale}/tools/${slug}/` }))),
+    ...locales.flatMap((locale) => guideSlugs.map((slug) => ({ path: `/${locale}/guides/${slug}/` }))),
   ];
 
-  return routes.map(({ path, priority }) => ({
+  return routes.map(({ path }) => ({
     url: `${siteOrigin}${path}`,
-    changeFrequency: 'monthly',
-    priority,
   }));
 }
